@@ -39,16 +39,16 @@ const App: React.FC = () => {
       </header>
       <nav>
         <div>
-          <Link to="/">Homepage</Link>
+          <Link to="/react-no-ssr-seo/">Homepage</Link>
         </div>
         <div>
-          <Link to="/page">Subpage</Link>
+          <Link to="/react-no-ssr-seo/page">Subpage</Link>
         </div>
       </nav>
       <main>
         <Router>
-          <Home path="/" />
-          <Page path="/page" />
+          <Home path="/react-no-ssr-seo/" />
+          <Page path="/react-no-ssr-seo/page" />
         </Router>
       </main>
     </div>
