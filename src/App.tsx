@@ -1,9 +1,17 @@
 import React from 'react';
 import { Router, RouteComponentProps, Link } from '@reach/router';
 import './App.css';
+import { Helmet } from 'react-helmet';
 
 const Page: React.FC<RouteComponentProps> = () => (
   <div>
+    <Helmet>
+      <title>Page 1 - A sample page for no-SSR application</title>
+      <meta
+        name="description"
+        content="Here is a description for non-home page of this sample app"
+      />
+    </Helmet>
     <p>
       This is an example page which is not a root page so a crawler should be
       clever
@@ -16,6 +24,13 @@ const Page: React.FC<RouteComponentProps> = () => (
 const Home: React.FC<RouteComponentProps> = () => {
   return (
     <div>
+      <Helmet>
+        <title>Home - A homepage for no-SSR application</title>
+        <meta
+          name="description"
+          content="A sample description for the home page"
+        />
+      </Helmet>
       <p>
         Simple routing using @reach/router is added to see how other routes will
         be indexed.
