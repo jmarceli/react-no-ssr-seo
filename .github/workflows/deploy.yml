@@ -1,0 +1,32 @@
+name: Deploy changes to gh-pages
+
+on: [push]
+
+jobs:
+  build:
+    name: Checkout and deploy
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node: [10]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm install
+    - run: npm run build
+      
+    - name: GitHub Pages
+      uses: crazy-max/ghaction-github-pages@v1.2.5
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        # Create incremental commit instead of doing push force
+        keep_history: true
+        # Build directory to deploy
+        build_dir: build
