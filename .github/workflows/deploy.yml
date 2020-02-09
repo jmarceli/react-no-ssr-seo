@@ -25,6 +25,8 @@ jobs:
       
     - name: GitHub Pages
       uses: crazy-max/ghaction-github-pages@v1.2.5
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         # Create incremental commit instead of doing push force
         keep_history: true
