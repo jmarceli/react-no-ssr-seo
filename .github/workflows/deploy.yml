@@ -14,8 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - run: git config user.name "GitHub Actions"
-    - run: git config user.email "actions@users.noreply.github.com"
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
@@ -31,8 +29,4 @@ jobs:
         # Create incremental commit instead of doing push force
         keep_history: true
         # Build directory to deploy
-        build_dir: public
-      
-#     - run: npm test
-#       env:
-#         CI: true
+        build_dir: build
