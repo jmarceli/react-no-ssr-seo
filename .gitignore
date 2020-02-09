@@ -21,3 +21,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# github keys
+react-no-ssr-seo_DEPLOY_KEY*
