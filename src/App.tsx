@@ -2,6 +2,7 @@ import React from 'react';
 import { Router, RouteComponentProps, Link } from '@reach/router';
 import './App.css';
 import { Helmet } from 'react-helmet';
+import { JSONLD, Generic } from 'react-structured-data';
 
 const Page: React.FC<RouteComponentProps> = () => (
   <div>
@@ -12,6 +13,28 @@ const Page: React.FC<RouteComponentProps> = () => (
         content="Here is a description for non-home page of this sample app"
       />
     </Helmet>
+    <JSONLD>
+      <Generic
+        type="article"
+        jsonldtype="Article"
+        schema={{
+          articleBody:
+            'This is an example page which is not a root page so a crawler should be clever enough to follow internal links and index this content',
+        }}
+      >
+        <Generic
+          type="author"
+          jsonldtype="Person"
+          schema={{
+            name: 'Jan Grzegorowski',
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': 'https://www.grzegorowski.com/',
+            },
+          }}
+        />
+      </Generic>
+    </JSONLD>
     <p>
       This is an example page which is not a root page so a crawler should be
       clever
