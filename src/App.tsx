@@ -18,6 +18,7 @@ const Page: React.FC<RouteComponentProps> = () => (
         type="article"
         jsonldtype="Article"
         schema={{
+          name: 'Page 1 - A sample page for no-SSR application',
           articleBody:
             'This is an example page which is not a root page so a crawler should be clever enough to follow internal links and index this content',
         }}
